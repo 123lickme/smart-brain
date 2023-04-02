@@ -9,6 +9,7 @@ import Register from './Components/Register/Register';
 import ParticlesBg from 'particles-bg';
 import './App.css';
 
+//code from clarifai documentation
 const returnClarifaiRequestOption = (imageUrl) =>  {
 
     // Your PAT (Personal Access Token) can be found in the portal under Authentification
@@ -48,6 +49,7 @@ const returnClarifaiRequestOption = (imageUrl) =>  {
     return requestOptions
 }
 
+//created blank state so image input will be cleared after signing out
 const initialState = {
       input: '',
       imageUrl: '',
@@ -107,7 +109,7 @@ class App extends Component {
     fetch("https://api.clarifai.com/v2/models/" + 'face-detection' + "/outputs", returnClarifaiRequestOption(this.state.input))
       .then(response => response.json())
       .then(response => {
-        fetch('http://localhost:3000/image', {
+        fetch('https://smartbrainapi-ubvq.onrender.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
