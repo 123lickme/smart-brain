@@ -81,6 +81,7 @@ class App extends Component {
     }})
   }
   
+  //function to get coordinates to use in box
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
